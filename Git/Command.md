@@ -22,3 +22,9 @@ git commit -m '备注'
 git push origin master
 
 ```
+
+> 拷贝版本库到本地
+
+```shell
+G:\note\handbook>git clone https://github.com/memeyun2000/handbook.git
+```
