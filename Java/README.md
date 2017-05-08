@@ -1,2 +1,0 @@
-Jasva handbook
-hehe
