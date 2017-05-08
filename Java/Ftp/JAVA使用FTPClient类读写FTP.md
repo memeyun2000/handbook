@@ -1,6 +1,6 @@
 > 创建一个连接FTP的工具类FTPUtil.Java
 
-```
+```java
 
 package com.metarnet.ftp.util;  
 
@@ -56,7 +56,7 @@ public class FTPUtil {
 
 > 编写一个读取FTP上文件的类ReadFTPFile.java
 
-```
+```java
 
 package com.metarnet.ftp.read;  
 
@@ -144,7 +144,7 @@ public class ReadFTPFile {
 
 > 创建一个往FTP上写入文件的类WriteFTPFile.java
 
-```
+```java
 package com.metarnet.ftp.write;  
 
 import java.io.BufferedWriter;  
@@ -248,7 +248,7 @@ public class WriteFTPFile {
 
 > 建立一个测试类FTPMain.java
 
-```
+```java
 package com.metarnet.ftp.main;  
 
 import java.io.InputStream;  

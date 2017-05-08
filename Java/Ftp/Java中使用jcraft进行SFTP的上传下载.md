@@ -1,6 +1,6 @@
 maven配置如下：
 
-```
+```xml
 <!-- 加入sftp依赖包 -->
 <dependency>
     <groupId>com.jcraft</groupId>
@@ -11,7 +11,7 @@ maven配置如下：
 
 基于密码认证的比较简单。简单代码如下：
 
-```
+```java
 package com.somnus.connect;
 
 import java.io.ByteArrayInputStream;
