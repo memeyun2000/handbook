@@ -18,6 +18,9 @@ git add {FileName}
 //提交
 git commit -m '备注'
 
+//查看git的文件状态
+git status -s
+
 //推送到版本库
 git push origin master
 
