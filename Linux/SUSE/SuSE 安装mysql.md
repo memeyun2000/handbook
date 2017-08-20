@@ -7,16 +7,26 @@ CDH-5.10.1-1.cdh5.10.1.p0.10-sles11.parcel  CDH-5.10.1-1.cdh5.10.1.p0.10-sles11.
 
 > 从官网上下载 mysql57-community-release-sles11-8.noarch.rpm 安装后会自动添加 zypper 源
 
+
 ```shell
 
-linux-jwo3:~/soft # rmp -ivh mysql57-community-release-sles11-8.noarch.rpm
-If 'rmp' is not a typo you can run the following command to lookup the package that contains the binary:
-    command-not-found rmp
--bash: rmp: command not found
 linux-jwo3:~/soft # rpm -ivh mysql57-community-release-sles11-8.noarch.rpm
 warning: mysql57-community-release-sles11-8.noarch.rpm: Header V3 DSA signature: NOKEY, key ID 5072e1f5
 Preparing...                ########################################### [100%]
    1:mysql57-community-relea########################################### [100%]
+
+```
+
+> Importing MySQL GnuPG Key
+
+Import into the system the GnuPG key for MySQL products, which will be used for checking signatures of the downloaded packages from the MySQL SLES repository, with the following command:
+
+```shell
+shell> sudo rpm --import /etc/RPM-GPG-KEY-mysql
+```
+
+
+```
 linux-jwo3:~/soft # zypper repos --name
 #  | 别名                                             | 名称                                             | 已启用 | 刷新
 ---+--------------------------------------------------+--------------------------------------------------+--------+-----
@@ -84,6 +94,8 @@ warning: /var/cache/zypp/packages/mysql57-community/mysql-community-server-5.7.1
 > 查看mysql root 的临时密码
 
 ```shell
+
+linux-jwo3:/var/log/mysql # service mysql start
 
 linux-jwo3:~/soft # grep 'temporary password' /var/log/mysql/mysqld.log
 2017-06-11T16:34:42.146631Z 1 [Note] A temporary password is generated for root@localhost: Dieos7uL>Tu=
