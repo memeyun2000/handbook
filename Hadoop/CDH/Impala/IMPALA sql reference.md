@@ -25,3 +25,9 @@ invalidate metadata
 invalidate metadata [TableName]
 
 ```
+
+> 尽量不使用 invalidate metadata 而是使用refresh
+
+```
+refresh TableName
+```
