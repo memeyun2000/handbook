@@ -31,3 +31,9 @@ git push origin master
 ```shell
 G:\note\handbook>git clone https://github.com/memeyun2000/handbook.git
 ```
+
+```
+//config global user.email and user.name 
+ git config --global user.email "you@example.com"
+ git config --global user.name "Your Name"
+```
