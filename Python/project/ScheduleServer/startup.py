@@ -3,6 +3,7 @@ import time
 import threading
 import queue
 
+import tools.ConnectTool
 from tools import ConnectTool
 
 # 计算任务方法
@@ -22,7 +23,7 @@ def generate_work():
         __queue.put("一个任务")
     else:
         # 任务队列是满的 休息一会
-        time.sleep(SlEEP_SECONDS)
+        time.sleep(SLEEP_SECONDS)
         
 # 使用线程 执行任务
 def run_thread(func):
@@ -47,7 +48,7 @@ __queue = queue.Queue()
     
     
 # 获取数据库链接
-conn = ConnectTool.get_conn("resources/sqlit3.db")
+conn = ConnectTool.get_conn("resources/sqlite3.db")
 
 """ 
 开始
