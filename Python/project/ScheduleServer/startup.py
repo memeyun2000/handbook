@@ -3,7 +3,6 @@ import time
 import threading
 import queue
 
-import tools.ConnectTool
 from tools import ConnectTool
 
 # 计算任务方法
