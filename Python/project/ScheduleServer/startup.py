@@ -13,7 +13,7 @@ def work():
     else:
         # 没有任务需要计算 休息一会
         print("task queue is empty,waiting...")
-        time.sleep(SLEEP_SECONDS)
+        # time.sleep(SLEEP_SECONDS)
 
 # 生成任务 方法
 def generate_work():
@@ -21,8 +21,9 @@ def generate_work():
         print("generate work")
         __queue.put("一个任务")
     else:
+        pass
         # 任务队列是满的 休息一会
-        time.sleep(SLEEP_SECONDS)
+        # time.sleep(SLEEP_SECONDS)
         
 # 使用线程 执行任务
 def run_thread(func):
@@ -46,21 +47,24 @@ exit_flag = False
 __queue = queue.Queue()
     
     
-# 获取数据库链接
-conn = ConnectTool.get_conn("resources/sqlite3.db")
 
 """ 
 开始
 """
-for i in range(WORK_THREAD_NUM):
-    schedule.every(THREAD_SEPARATE).seconds.do(run_thread,work)
+if __name__ == "__main__":
+    # 获取数据库链接
+    # conn = ConnectTool.get_conn("resources/sqlite3.db")
 
-# generate task method
-schedule.every(GENERATE_THREAD_SEPARATE).seconds.do(run_thread,generate_work)
 
-while not exit_flag:
-    schedule.run_pending()
-    time.sleep(1)
+    for i in range(WORK_THREAD_NUM):
+        schedule.every(THREAD_SEPARATE).seconds.do(run_thread,work)
 
-# 善后
-conn.close()
+    # generate task method
+    schedule.every(GENERATE_THREAD_SEPARATE).seconds.do(run_thread,generate_work)
+
+    while not exit_flag:
+        schedule.run_pending()
+        time.sleep(1)
+
+    # 善后
+    # conn.close()
