@@ -3,6 +3,10 @@ import time
 import threading
 import queue
 
+
+from controller import Worker
+from controller import Productor
+from bo.task_fact import task_fact
 from tools import ConnectTool
 
 # 计算任务方法
@@ -10,6 +14,8 @@ def work():
     if not __queue.empty():
         __task = __queue.get()
         print("执行 {}".format(__task))
+        # __taskfact = task_fact("1","shell")
+        # Worker.work_route(__taskfact)
     else:
         # 没有任务需要计算 休息一会
         print("task queue is empty,waiting...")
@@ -19,7 +25,8 @@ def work():
 def generate_work():
     if __queue.empty():
         print("generate work")
-        __queue.put("一个任务")
+        # __queue.put("一个任务")
+        Productor.product_task(__queue)
     else:
         pass
         # 任务队列是满的 休息一会
@@ -52,9 +59,6 @@ __queue = queue.Queue()
 开始
 """
 if __name__ == "__main__":
-    # 获取数据库链接
-    # conn = ConnectTool.get_conn("resources/sqlite3.db")
-
 
     for i in range(WORK_THREAD_NUM):
         schedule.every(THREAD_SEPARATE).seconds.do(run_thread,work)
@@ -66,5 +70,3 @@ if __name__ == "__main__":
         schedule.run_pending()
         time.sleep(1)
 
-    # 善后
-    # conn.close()
