@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+     http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+      ">
+ 
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!-- <property name="url" value="jdbc:mysql://localhost:3306/exampledb"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/> -->
+
+        <property name="url" value="jdbc:sqlite:/share/handbook/resources/sqlite3/sqlite3.db"/>
+        <property name="driverClassName" value="org.sqlite.JDBC"/>
+    </bean>
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceXmlLocation" value="META-INF/persistence.xml"/>
+        <property name="persistenceUnitName" value="JPAExamples"/>
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+        <property name="jpaDialect" ref="jpaDialect"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+ 
+    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="generateDdl" value="false" />
+        <property name="database" value="MYSQL"/>
+    </bean>
+ 
+    <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
+ 
+    <bean id="entityManager" factory-bean="entityManagerFactory"  factory-method="createEntityManager"></bean>
+    <!-- Jpa 事务管理器  -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+          p:entityManagerFactory-ref="entityManagerFactory" />
+    <!-- 开启注解事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+ 
+    <!-- 启动对@AspectJ（面向切面）注解的支持 -->
+    <aop:aspectj-autoproxy />
+ 
+    <context:component-scan base-package="com.sec"></context:component-scan>
+ 
+    <jpa:repositories base-package="com.sec"/>
+</beans>
