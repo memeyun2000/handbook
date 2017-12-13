@@ -14,13 +14,13 @@
       ">
  
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <!-- <property name="url" value="jdbc:mysql://localhost:3306/exampledb"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/> -->
+        <property name="url" value="jdbc:derby:/home/sec/share/handbook/embed_databases/derby/db-derby-10.14.1.0-bin/database_1/mydb1"/>
+        <!-- <property name="username" value="root"/>
+        <property name="password" value="root"/> -->
+        <property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver"/>
 
-        <property name="url" value="jdbc:sqlite:/share/handbook/resources/sqlite3/sqlite3.db"/>
-        <property name="driverClassName" value="org.sqlite.JDBC"/>
+        <!-- <property name="url" value="jdbc:sqlite:/share/handbook/resources/sqlite3/sqlite3.db"/>
+        <property name="driverClassName" value="org.sqlite.JDBC"/> -->
     </bean>
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
@@ -36,8 +36,8 @@
     </bean>
  
     <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-        <property name="generateDdl" value="false" />
-        <property name="database" value="MYSQL"/>
+        <property name="generateDdl" value="true" />
+        <property name="database" value="DERBY"/>
     </bean>
  
     <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
