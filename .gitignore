@@ -1,6 +1,15 @@
+
+## pthon ##
 __*
+
+## vscode ##
 .vscode
-target/
 .settings/
 .project
 .classpath
+
+## maven ##
+target/
+
+## derby ##
+#*derby.log
