@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Dec 19 19:24:29 CST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-0160-6e84-8e77-000007521e48 
+on database directory memory:/home/sec/share/handbook/Java/Spring/src/_01_spring_boot_data_jpa_simple1/testdb with class loader java.net.URLClassLoader@3d35cc98 
+Loaded from file:/home/sec/.m2/repository/org/apache/derby/derby/10.14.1.0/derby-10.14.1.0.jar
+java.vendor=Azul Systems, Inc.
+java.runtime.version=1.8.0_152-b16
+user.dir=/home/sec/share/handbook/Java/Spring/src/_01_spring_boot_data_jpa_simple1
+os.name=Linux
+os.arch=amd64
+os.version=4.13.0-19-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
