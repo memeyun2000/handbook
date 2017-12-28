@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="'Hello, ' + ${name} + '!'" />
+
+    <form action="#" th:action="@{/submit}" method="post">
+    <table th:each="user,userstat:${userform.list}">
+        <tr>
+            <td>
+                <input type="text" name="username" th:value="${user.username}" />
+            </td>
+            <td>
+                <input type="text" name="realname"  th:value="${user.realname}" />
+            </td>
+            <td>
+                <input type="text" name="age" th:value="${user.age}" />
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="submit" />
+    </form>
+</body>
+</html>
