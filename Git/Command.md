@@ -38,7 +38,7 @@ G:\note\handbook>git clone https://github.com/memeyun2000/handbook.git
  git config --global user.name "Your Name"
 ```
 
-> git 跟踪不区分文件大小写问题 （修改文件的大小写没有响应）
+> git 跟踪文件不区分大小写问题 （修改文件名的大小写没有响应）
 
 ```shell
 git mv --force TARGET_FILENAME NEW_FILENAME
