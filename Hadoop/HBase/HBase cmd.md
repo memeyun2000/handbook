@@ -9,6 +9,8 @@ scan TableName ,{LIMIT => 200}
 //前缀查询
 scan TableName , {FILTER => org.apache.hadoop.hbase.filter.PrefixFilter.new(org.apache.hadoop.hbase.util.Bytes.toBytes('Prefix'))}
 
+scan TableName , {FILTER=>"PrefixFilter('helloworld')"}
+
 
 //取rowkey 记录
 get 'TableName','Rowkey'
