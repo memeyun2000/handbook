@@ -14,3 +14,9 @@ connect 'jdbc:derby:mydbname;create=true';
 disconnect
 
 ```
+
+> 启动derby服务
+
+```
+java -jar /derbyrun.jar server start
+```
