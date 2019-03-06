@@ -1,0 +1,124 @@
+" vim 最大化窗口启动 {
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window (for an alternative on Windows, see simalt below).
+  set lines=999 columns=999
+else
+  " This is console Vim.
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif
+" }
+
+
+
+" colorscheme {
+colorscheme Light
+" }
+
+
+
+" KeyMap {
+
+" NERDtree shortcut
+nmap <C-\>  :NERDTreeToggle<CR>
+imap <C-\>  <ESC>:NERDTreeToggle<CR>
+
+
+
+" save file by ctrl+s
+nmap <C-S>  <ESC>:update<CR>
+imap <C-S>  <ESC>:update<CR>
+vmap <C-S>  <ESC>:update<CR>
+
+
+
+" NERDCommenterComment keymap
+"
+"默认快捷键无效 重新设置一下
+nnoremap <leader>cc <plug>NERDCommenterToggle
+vnoremap <leader>cc <plug>NERDCommenterToggle
+" <leader>c<space> 常用：无注释则加上注释，有注释则去掉注释
+
+
+
+" YCM shotcut
+nnoremap <leader>gl :YcmCompleter Format<CR>
+" 跳转到申明处
+"nnoremap <leader><F3>   :YcmCompleter GoToDefinition<CR>
+nnoremap <F3>   :YcmCompleter GoTo<CR>
+nnoremap <leader>gtr   :YcmCompleter GoToReferences<CR>
+nnoremap <leader>gti   :YcmCompleter GoToImplementation<CR>
+
+
+
+" YouDao translate
+vnoremap <leader>tt :<C-u>Ydv<CR>
+nnoremap <leader>tt :<C-u>Ydc<CR>
+
+
+
+" CtrlP keymap
+" 最近打开最多的文件
+nnoremap <leader>rf   :CtrlPMRU<CR>
+
+
+
+" vim windows keymap
+" 窗口间跳转快捷键 不需要再设定别的快捷键了
+" ctrl-h ctrl-l ctrl-j ctrl-k
+
+
+
+
+" }
+
+
+
+" YCM Option {
+
+" Note that after changing an option in your vimrc script you have to
+" restart ycmd with the |:YcmRestartServer| command for the changes to take
+" effect.
+
+  let g:ycm_complete_in_comments = 1
+  let g:ycm_complete_in_strings = 1
+  let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+" }
+
+
+
+" CtrlP Option {
+let g:ctrlp_by_filename = 1
+
+
+" 忽略的文件
+" spf 默认是使用 g:ctrlp_user_command 所以先要解除该设置
+"   1 解除 g:ctrlp_user_command
+"   2 设置允许扫描隐藏文件
+"   3 添加不需要扫描的文件类型
+
+if exists("g:ctrlp_user_command")
+    unlet g:ctrlp_user_command
+endif
+let g:ctrlp_show_hidden = 1
+"let g:ctrlp_custom_ignore = {'dir': '\v[\/]\.(git|hg|svn)$','file': '\v\.(exe|so|dll|class)$','link': 'SOME_BAD_SYMBOLIC_LINKS'}
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/target/*,*/.idea/*,*/.settings/*,*.iml,*.class        " Linux/MacOSX
+
+
+" }
+
+
+
+" NERDTree Option {
+let NERDTreeQuitOnOpen=0
+" }
+
+
+
+
