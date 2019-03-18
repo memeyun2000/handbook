@@ -9,8 +9,11 @@ Git源码地址：https://github.com/apache/zeppelin.git(注意不要再从如�
 以下将${ZEPPELIN_HOME}指代git clone之后源码的根目录。使用如下maven命令编译并生成zeppelin的发布包：
 
 
-```
+```java
+--新版本的zeppelin可能支持多个版本的spark所以不能这么指定spark 版本
 mvn install -Pbuild-distr -Pspark-1.6 -Dspark.version=1.6.2 -Phadoop-2.7 -Dhadoop.version=2.7.2  -Psparkr -Ppyspark -Dmaven.findbugs.enable=false -Drat.skip=true -Dcheckstyle.skip=true -Denforcer.skip=true -Dcobertura.skip=true -DskipTests -X
+--
+mvn install -Pbuild-distr -Psparkr -Ppyspark -Dmaven.findbugs.enable=false -Drat.skip=true -Dcheckstyle.skip=true -Denforcer.skip=true -Dcobertura.skip=true -DskipTests -X
 ```
 
 解释：
