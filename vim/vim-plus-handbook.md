@@ -21,6 +21,8 @@ ctrl + l
 
 4. 可以在多个路径中搜索  vim /main path1/** path2/** | copen
 
+5. 搜索当前目录及其子目录 vim /main/ ** | copen
+
 ```
 
 > 文件比较
