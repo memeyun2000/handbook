@@ -1,0 +1,5 @@
+<service>
+    <url>${database.url}</url>
+    <username>${database.username}</username>
+    <password>${database.password}</password>
+</service>
