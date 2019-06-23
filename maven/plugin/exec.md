@@ -26,3 +26,8 @@ mvn exec:exec -Dexec.executable="java" -Dexec.args="-DsystemProperty1=value1 -Ds
 ```bash
 mvn exec:exec -Dexec.executable="java" -Dexec.args="-classpath %classpath com.miner.Test1"
 ```
+
+> 运行java
+```
+mvn exec:java -Dexec.mainClass="com.vineetmanohar.module.Main" -Dexec.args="arg0 arg1 arg2"
+```
