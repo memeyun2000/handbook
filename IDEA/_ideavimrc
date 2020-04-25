@@ -6,27 +6,36 @@ if has("clipboard")
     vnoremap <C-C> "+y
 endif
 " 映射到idea快捷键
+let mapleader=","
 " 弹出输入框，可以跳到指定类
-nnoremap <Space>gc :action GotoClass<CR>
+nnoremap <leader>gc :action GotoClass<CR>
 " 弹出输入框，跳转到指定操作
-nnoremap <Space>ga :action GotoAction<CR>
+nnoremap <leader>ga :action GotoAction<CR>
 " 跳转到定义
-nnoremap <Space>gd :action GotoDeclaration<CR>
+nnoremap <leader>gd :action GotoDeclaration<CR>
 " 跳转到实现
-nnoremap <Space>gi :action GotoImplementation<CR>
+nnoremap <leader>gi :action GotoImplementation<CR>
 " 跳转到指定的文件
-nnoremap <Space>gf :action GotoFile<CR>
+nnoremap <leader>gf :action GotoFile<CR>
 " 跳转到方法的声明
-nnoremap <Space>gs :action GotoSuperMethod<CR>
+nnoremap <leader>gs :action GotoSuperMethod<CR>
 " 跳转到测试
-nnoremap <Space>gt :action GotoTest<CR>
+nnoremap <leader>gt :action GotoTest<CR>
 " 跳转到变量的声明
-nnoremap <Space>gS :action GotoSymbol<CR>
+nnoremap <leader>gS :action GotoSymbol<CR>
  
 " 查找使用
-nnoremap <Space>fu :action FindUsages<CR>
+nnoremap <leader>fu :action FindUsages<CR>
 " 显示使用
-nnoremap <Space>su :action ShowUsages<CR>
+nnoremap <leader>su :action ShowUsages<CR>
+
+" 格式化代码
+nnoremap <leader>fm :action ReformatCode<CR>
+inoremap <leader>fm :action ReformatCode<CR>
+vnoremap <leader>fm :action ReformatCode<CR>
+
+" 最近打开的文件
+nnoremap <leader>rf :action RecentFiles<CR>
  
 " 前进，相当似于eclipse中的alt+方向右键
 nnoremap gf :action Forward<CR>
@@ -39,18 +48,18 @@ nnoremap gh ^
 nnoremap gl $
  
 " Window operation
-nnoremap <Space>ww <C-W>w
-nnoremap <Space>wc <C-W>c
-nnoremap <Space>wj <C-W>j
-nnoremap <Space>wk <C-W>k
-nnoremap <Space>wh <C-W>h
-nnoremap <Space>wl <C-W>l
-nnoremap <Space>ws <C-W>s
-nnoremap <Space>w- <C-W>-
-nnoremap <Space>w+ <C-W>+
-nnoremap <Space>w= <C-W>=
+nnoremap <leader>ww <C-W>w
+nnoremap <leader>wc <C-W>c
+nnoremap <leader>wj <C-W>j
+nnoremap <leader>wk <C-W>k
+nnoremap <leader>wh <C-W>h
+nnoremap <leader>wl <C-W>l
+nnoremap <leader>ws <C-W>s
+nnoremap <leader>w- <C-W>-
+nnoremap <leader>w+ <C-W>+
+nnoremap <leader>w= <C-W>=
  
-nnoremap <Space>wv <C-W>vf
+nnoremap <leader>wv <C-W>vf
  
 " Vim 查找不区分大小写
 set ignorecase
