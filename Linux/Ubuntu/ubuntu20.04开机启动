@@ -1,1 +1,31 @@
+sudo vim /lib/systemd/system/rc-local.service
+
+在文件尾部中添加：
+
+[Install]
+WantedBy=multi-user.target
+Alias=rc-local.service
+
+随后创建rc.local文件，
+
+sudo vim /etc/rc.local
+
+并添加以下内容： #不能添加阻塞进程 不然开机卡死
+
+#!/bin/sh
+echo "看到这行字，说明添加自启动脚本成功。" > /usr/local/test.log
+exit 0
+
+给rc.local加上权限
+
+sudo chmod +x /etc/rc.local
+ 
+ 
+在 /etc/systemd/system 目录下创建软链接
+
+sudo ln -s /lib/systemd/system/rc-local.service /etc/systemd/system/
+
+重启后在 /usr/local/test.log中看到文字说明设置成功
+
+
 https://blog.csdn.net/weixin_42454034/article/details/106564783
