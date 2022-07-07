@@ -10,7 +10,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <org.hibernate-version>5.1.0.Final</org.hibernate-version>
+    <org.hibernate-version>6.0.23.Final</org.hibernate-version>
   </properties>
 
   <dependencies>
