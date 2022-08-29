@@ -36,6 +36,20 @@ vnoremap <leader>fm :action ReformatCode<CR>
 
 " 最近打开的文件
 nnoremap <leader>rf :action RecentFiles<CR>
+" run menu
+nnoremap <leader>rm :action RunMenu<CR>
+nnoremap <leader>rn :action RunMenu<CR>
+#inoremap <leader>rn :action RunMenu<CR>
+nnoremap <leader>rr :action Rerun<CR>
+#inoremap <leader>rr :action Rerun<CR>
+" build menu
+nnoremap <leader>bm :action BuildMenu<CR>
+nnoremap <leader>bd :action BuildMenu<CR>
+" translate
+nnoremap <leader>tt :action TranslationGroup<CR>
+vnoremap <leader>tt :action TranslationGroup<CR>
+" break point
+nnoremap <leader>da :action ToggleLineBreakpoint<CR>
  
 " 前进，相当似于eclipse中的alt+方向右键
 nnoremap gf :action Forward<CR>
@@ -66,3 +80,4 @@ set ignorecase
 
 " Vim 增量查找
 set incsearch
+set keep-english-in-normal
